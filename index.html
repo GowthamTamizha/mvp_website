@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effortless Scrap Collection in Bengaluru | Scrap Mart</title>
+    <meta name="description" content="Professional scrap collection service in Bengaluru. We pick up all types of scrap - metal, paper, plastic, e-waste at your doorstep.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* CSS Variables for consistent theming and easy updates */
+        :root {
+            --primary-color: #32aa27; /* A vibrant green for environmental focus */
+            --primary-dark: #26801d; /* A darker shade of green for hover states */
+            --secondary-color: #FFC107; /* An amber/yellow for highlights and accents */
+            --dark-color: #162415; /* A deep, rich black for strong contrast */
+            --light-color: #f0f8ed; /* A very subtle light green for soft backgrounds */
+            --gray-light: #f9f9f9; /* A clean light gray for section backgrounds */
+            --white: #ffffff; /* Pure white for clean elements */
+            --text-color: #333333; /* Standard dark gray for general text */
+            --shadow: 0 5px 15px rgba(0,0,0,0.1); /* Default soft shadow */
+            --border-radius: 8px; /* Consistent border radius for rounded corners */
+            --transition: all 0.3s ease; /* Smooth transition for interactive elements */
+        }
+
+        /* Basic CSS Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            -webkit-font-smoothing: antialiased; /* Enhance font rendering on macOS */
+            -moz-osx-font-smoothing: grayscale; /* Enhance font rendering in Firefox */
+        }
+
+        /* Container for consistent content width and centering */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Utility Classes for common styling patterns */
+        .text-center { text-align: center; }
+        .py-5 { padding: 5rem 0; } /* Vertical padding */
+        .mt-4 { margin-top: 1rem; } /* Top margin */
+        .mb-3 { margin-bottom: 0.75rem; } /* Bottom margin */
+
+        /* Header Styling: Fixed navigation bar at the top */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1.25rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000; /* Ensure header is above other content */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            color: var(--white);
+            transition: opacity 0.3s ease;
+        }
+        .logo:hover {
+            opacity: 0.8; /* Slight opacity change on hover */
+        }
+
+        /* Navigation Toggle Button for mobile responsiveness */
+        .nav-toggle {
+            display: none; /* Hidden by default, shown on mobile */
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.8rem; /* Large enough for easy tapping */
+            cursor: pointer;
+            padding: 0.5rem; /* Increased tap area */
+            transition: transform 0.3s ease;
+        }
+        .nav-toggle:active {
+            transform: scale(0.95); /* A slight press effect on click */
+        }
+
+        /* Main Navigation Links */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem; /* Spacing between navigation items */
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* Underline effect on navigation hover */
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--white);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%; /* Expands underline on hover */
+        }
+
+        /* Hero Section: The main welcoming banner */
+        .hero {
+            background-color: var(--light-color);
+            padding: 8rem 0 5rem;
+            text-align: center;
+            margin-top: 4.5rem; /* Space for fixed header */
+            position: relative;
+            overflow: hidden;
+            /* Subtle background image with a color overlay for texture */
+            background-image: linear-gradient(135deg, var(--light-color) 0%, rgba(240, 248, 237, 0.7) 100%), url('https://images.unsplash.com/photo-1627964121516-ea335756356c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-blend-mode: overlay; /* Blend mode for the overlay effect */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem); /* Responsive font size */
+            margin-bottom: 1.25rem;
+            color: var(--dark-color);
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Soft text shadow for readability */
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            color: var(--text-color);
+        }
+
+        /* Button Styles: Reusable button styles */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.9rem 2.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Prominent shadow for depth */
+            letter-spacing: 0.5px; /* Slight letter spacing for appeal */
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 8px 18px rgba(0,0,0,0.2); /* Enhanced shadow on hover */
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            box-shadow: none; /* No initial shadow for secondary button */
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Shadow appears on hover */
+        }
+
+        /* Section Common Styles: General padding and title styling for content sections */
+        section {
+            padding: 5rem 0;
+            scroll-margin-top: 5rem; /* Ensures smooth scrolling to sections without header overlap */
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            color: var(--dark-color);
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 0.6rem;
+            font-weight: 700;
+        }
+
+        /* Underline effect for section titles */
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 5px;
+            background-color: var(--secondary-color); /* Highlight color for accent */
+            border-radius: 3px;
+        }
+
+        .section-title p {
+            font-size: 1.15rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Services Section: Grid layout for service offerings */
+        .services {
+            background-color: var(--gray-light);
+        }
+
+        .services-grid {
+            display: grid;
+            /* Responsive grid columns, ensuring at least 280px width per card */
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            min-height: 380px; /* Ensures consistent card height */
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px); /* Stronger lift effect */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2); /* More pronounced shadow */
+        }
+
+        .service-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.9); /* Slightly darkens image for text contrast */
+            transition: filter 0.3s ease, transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-img::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.1); /* Subtle dark overlay */
+        }
+
+        .service-card:hover .service-img {
+            filter: brightness(1.05); /* Slight brighten on hover */
+            transform: scale(1.05); /* Gentle zoom effect on hover */
+        }
+
+        .service-content {
+            padding: 1.8rem;
+            flex-grow: 1; /* Allows content area to expand */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .service-content h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.45rem;
+            font-weight: 600;
+        }
+
+        .service-content p {
+            font-size: 1.05rem;
+            color: #555;
+        }
+
+        /* How It Works Section: Step-by-step process explanation */
+        .how-it-works {
+            background-color: var(--white);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: 3rem;
+            margin-top: 3.5rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            background-color: var(--gray-light);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Soft shadow for each step */
+            transition: var(--transition);
+        }
+        .step:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Enhanced shadow on hover */
+            transform: translateY(-5px); /* Lift effect on hover */
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--secondary-color); /* Highlight color for numbers */
+            color: var(--dark-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 1.8rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            border: 3px solid var(--primary-color); /* Border around the circle */
+        }
+
+        .step:hover .step-number {
+            transform: scale(1.18); /* Zoom effect on hover */
+            background-color: var(--primary-color); /* Color change on hover */
+            color: var(--white);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .step h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        .step p {
+            color: #555;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        footer .logo {
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            font-size: 1.8rem;
+            letter-spacing: 1.5px;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85); /* Slightly transparent white for subtle text */
+        }
+
+        /* Footer links styling */
+        footer p a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer p a:hover {
+            color: var(--primary-color); /* Color change on hover */
+        }
+
+        /* Social media icons in footer */
+        .social-icons {
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin: 0 0.9rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px) scale(1.15); /* Lift and zoom effect */
+            color: var(--secondary-color); /* Accent color on hover */
+        }
+
+        /* Mobile Styles (Responsive Design) */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: row; /* Keep logo and toggle on one line */
+            }
+
+            .nav-toggle {
+                display: block; /* Show hamburger icon on mobile */
+            }
+
+            nav {
+                position: fixed;
+                top: 5rem; /* Position below fixed header */
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-dark);
+                padding: 1.5rem 0;
+                transform: translateY(-100%); /* Hide nav off-screen by default */
+                opacity: 0;
+                transition: var(--transition);
+                pointer-events: none; /* Disable interaction when hidden */
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            }
+
+            nav.active {
+                transform: translateY(0); /* Slide nav into view */
+                opacity: 1;
+                pointer-events: all; /* Enable interaction */
+            }
+
+            nav ul {
+                flex-direction: column; /* Stack nav items vertically */
+                align-items: center;
+                gap: 1.2rem;
+            }
+
+            nav ul li a {
+                padding: 0.8rem 0;
+                font-size: 1.1rem;
+            }
+
+            /* Adjust hero section for smaller screens */
+            .hero {
+                padding: 7rem 0 4rem;
+                margin-top: 5rem;
+            }
+            .hero h1 {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+            .hero p {
+                font-size: 1.1rem;
+                max-width: 90%;
+            }
+
+            .btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
+            }
+            /* Stack secondary button below primary on mobile */
+            .btn-secondary {
+                margin-top: 1rem !important;
+                display: block;
+                width: fit-content; /* Allow button to fit content, but center it */
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+
+            section {
+                padding: 3.5rem 0;
+                scroll-margin-top: 5rem;
+            }
+
+            .section-title {
+                margin-bottom: 2.5rem;
+            }
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            .section-title p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .services-grid, .steps {
+                gap: 2rem;
+            }
+
+            /* Adjust service cards for mobile */
+            .service-card {
+                min-height: auto; /* Allow height to adjust dynamically */
+            }
+            .service-img {
+                height: 180px;
+            }
+            .service-content {
+                padding: 1.2rem;
+            }
+            .service-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .step {
+                padding: 1.5rem;
+            }
+            .step-number {
+                width: 65px;
+                height: 65px;
+                font-size: 1.6rem;
+                margin-bottom: 1.5rem;
+            }
+            .step h3 {
+                font-size: 1.2rem;
+            }
+
+            /* Adjust footer for mobile */
+            footer {
+                padding: 2.5rem 0;
+            }
+            footer .logo {
+                font-size: 1.5rem;
+            }
+            footer p {
+                font-size: 0.9rem;
+            }
+            .social-icons a {
+                font-size: 1.6rem;
+                margin: 0 0.6rem;
+            }
+        }
+
+        /* Animations: CSS properties for fade-in effect controlled by JS */
+        /* Keyframes define the animation sequence */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Initial state of elements that will fade in */
+        .fade-in {
+            opacity: 0; /* Hidden by default */
+            transform: translateY(20px); /* Slightly below its final position */
+            transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth transition */
+        }
+        /* Class added by JavaScript to trigger the animation */
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">Scrap Mart</a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 class="fade-in">Turn Your Trash Into Treasure in Bengaluru!</h1>
+                <p class="fade-in delay-1">Get top value for your old scrap materials with **Scrap Mart's** convenient doorstep pickup service. We make recycling easy, rewarding, and responsible for you!</p>
+                <a href="tel:+919738941808" class="btn fade-in delay-2">Call Us Now to Schedule Pickup</a>
+                <a href="https://wa.me/919738941808?text=Hi%20Scrap%20Mart%2C%20I%20would%20like%20to%20schedule%20a%20scrap%20pickup." class="btn btn-secondary fade-in delay-3 mt-4" target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
+            </div>
+        </section>
+        
+        <section id="services" class="services py-5">
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>What We Collect</h2>
+                    <p>We responsibly recycle a wide range of materials, ensuring an eco-friendly process for every item.</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card fade-in delay-1">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=800&q=80');" role="img" aria-label="Pile of various metal scrap, including copper pipes and iron rods"></div>
+                        <div class="service-content">
+                            <h3>Metal Scrap</h3>
+                            <p>We collect all types of metal scrap including iron, steel, copper, brass, and aluminum at competitive prices.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card fade-in delay-2">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1627964121516-ea335756356c?auto=format&fit=crop&w=800&q=80');" role="img" aria-label="Stack of old newspapers and flattened cardboard boxes ready for recycling"></div>
+                        <div class="service-content">
+                            <h3>Paper & Cardboard</h3>
+                            <p>Eco-friendly disposal of paper waste including newspapers, magazines, cartons, and packaging materials.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card fade-in delay-3">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1624640166415-38c227845722?auto=format&fit=crop&w=800&q=80');" role="img" aria-label="Colorful plastic bottles and containers sorted for recycling"></div>
+                        <div class="service-content">
+                            <h3>Plastic Waste</h3>
+                            <p>Responsible recycling of all plastic materials including bottles, containers, packaging, and more.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card fade-in delay-4">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1594726514652-30374e2d2719?auto=format&fit=crop&w=800&q=80');" role="img" aria-label="Assortment of old electronic devices and cables, including a laptop and circuit boards"></div>
+                        <div class="service-content">
+                            <h3>E-Waste</h3>
+                            <p>Safe disposal of electronic waste including computers, phones, appliances, and other electronics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="how-it-works" class="how-it-works py-5">
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>Our Simple Process</h2>
+                    <p>Recycling your scrap has never been easier. Just follow these steps:</p>
+                </div>
+                
+                <div class="steps">
+                    <div class="step fade-in delay-1">
+                        <div class="step-number">1</div>
+                        <h3>Get in Touch</h3>
+                        <p>Simply call or message us on WhatsApp to discuss your scrap and schedule a pickup.</p>
+                    </div>
+                    
+                    <div class="step fade-in delay-2">
+                        <div class="step-number">2</div>
+                        <h3>Doorstep Pickup</h3>
+                        <p>Our friendly team will arrive at your location at the agreed time to collect your materials.</p>
+                    </div>
+                    
+                    <div class="step fade-in delay-3">
+                        <div class="step-number">3</div>
+                        <h3>Instant Payment</h3>
+                        <p>We weigh your scrap on the spot and pay you fair, competitive prices instantly.</p>
+                    </div>
+                    
+                    <div class="step fade-in delay-4">
+                        <div class="step-number">4</div>
+                        <h3>Eco-Friendly Recycling</h3>
+                        <p>Rest assured, all collected materials are processed and recycled responsibly, benefiting our planet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="fade-in">
+        <div class="container">
+            <a href="#" class="logo">Scrap Mart</a>
+            <p>Your trusted partner for professional scrap collection in Bengaluru, Karnataka.</p>
+            <p>
+                Call Us: <a href="tel:+919738941808">+91 9738941808</a> | 
+                Email: <a href="mailto:contact@scrapmart.com">contact@scrapmart.com</a>
+            </p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook page"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram profile"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; <span id="year"></span> Scrap Mart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile navigation toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const nav = document.getElementById('main-nav');
+        
+        // Event listener for hamburger icon click
+        navToggle.addEventListener('click', () => {
+            nav.classList.toggle('active'); // Toggles 'active' class on nav for visibility
+            navToggle.querySelector('i').classList.toggle('fa-bars'); // Toggles hamburger icon
+            navToggle.querySelector('i').classList.toggle('fa-times'); // Toggles 'X' icon
+            // Update aria-expanded for screen readers
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+        
+        // Close mobile menu when a navigation link is clicked
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active'); // Hide navigation
+                    navToggle.querySelector('i').classList.remove('fa-times'); // Change icon back to bars
+                    navToggle.querySelector('i').classList.add('fa-bars');
+                    navToggle.setAttribute('aria-expanded', 'false'); // Update ARIA attribute
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links (e.g., clicking 'Services' scrolls smoothly to section)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default jump behavior
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjust for fixed header height
+                        behavior: 'smooth' // Enable smooth scroll animation
+                    });
+                }
+            });
+        });
+        
+        // Dynamically set the current year in the footer copyright notice
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Intersection Observer for scroll-triggered fade-in animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible'); // Add class to trigger animation
+                    observer.unobserve(entry.target); // Stop observing once element is visible
+                }
+            });
+        }, {
+            threshold: 0.1, /* Trigger when 10% of the element is visible */
+            rootMargin: '0px 0px -50px 0px' /* Adjust detection slightly earlier than viewport bottom */
+        });
+        
+        // Observe all elements marked for fade-in animation
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
