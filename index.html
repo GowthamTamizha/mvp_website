@@ -83,9 +83,19 @@
             text-decoration: none;
             color: var(--white);
             transition: opacity 0.3s ease;
+            /* Added for logo image alignment */
+            display: flex; 
+            align-items: center; 
         }
         .logo:hover {
             opacity: 0.8; /* Slight opacity change on hover */
+        }
+
+        /* Logo Image Styling */
+        .logo img {
+            height: 55px; /* Increased height for better visibility */
+            margin-right: 0px; /* Space between logo and text */
+            vertical-align: middle; /* Align with text */
         }
 
         /* Navigation Toggle Button for mobile responsiveness */
@@ -668,7 +678,11 @@
 <body>
     <header>
         <div class="container header-content">
-            <a href="#" class="logo">Scrap Mart</a>
+            <!-- Modified: Added an <img> tag for the logo, using the provided image file -->
+            <a href="#" class="logo">
+                <img src="https://lh3.googleusercontent.com/d/1yOD1prYXUmDVotEpRzEtjqHH0ImhNQI6=w1000" alt="SmartShoppers Logo"> 
+                Scrap Mart
+            </a>
             <!-- Navigation toggle button for mobile, using Font Awesome icon -->
             <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
                 <i class="fas fa-bars"></i>
@@ -822,7 +836,10 @@
     <!-- Footer: Contact information and copyright -->
     <footer class="fade-in">
         <div class="container">
-            <a href="#" class="logo">Scrap Mart</a>
+            <a href="#" class="logo">
+                <img src="https://lh3.googleusercontent.com/d/1yOD1prYXUmDVotEpRzEtjqHH0ImhNQI6=w1000" alt="SmartShoppers Logo"> 
+                Scrap Mart
+            </a>
             <p>Your trusted partner for professional scrap collection in Bengaluru, Karnataka.</p>
             <p>
                 Call Us: <a href="tel:+919738941808">+91 9738941808</a> | 
