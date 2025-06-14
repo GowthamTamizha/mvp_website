@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrap Mart - A3 Business Poster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* A3 size: 297mm x 420mm. Using a common DPI (e.g., 96 DPI) for web representation.
+           For print, you would use this design with a higher resolution output.
+           Using relative units for adaptability within the container. */
+        :root {
+            --primary-color: #32aa27; /* Your vibrant green */
+            --secondary-color: #FFC107; /* Your amber/yellow for accents */
+            --dark-color: #162415; /* Your deep black for text */
+            --text-color: #333333; /* Standard dark gray for general text */
+            --white: #ffffff;
+            --light-gray: #f0f8ed;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0; /* Removed body padding to prevent extra space around the poster */
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Kept for browser display, may not affect print directly */
+        }
+
+        /* Poster Container - simulating A3 dimensions */
+        .poster-container {
+            width: 29.7cm;  /* A3 width */
+            height: 42cm;   /* A3 height */
+            background-color: var(--white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Ensure content doesn't bleed out */
+            position: relative;
+            border-radius: 10px; /* Slightly rounded corners for visual appeal */
+        }
+
+        /* Header Section */
+        .poster-header {
+            background-color: var(--primary-color);
+            color: var(--white); /* Ensure text is pure white for contrast */
+            padding: 1.2cm 0; /* Adjusted padding to ensure all content fits vertically */
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .poster-header .header-logo {
+            height: 2.2cm; /* Slightly larger logo to be prominent */
+            margin-bottom: 0.2cm; /* Space between logo and brand name */
+            display: block; /* Ensure it behaves as a block for vertical centering */
+        }
+
+        .poster-header h1 {
+            font-size: 1.4cm; /* Increased font size for brand name */
+            margin: 0;
+            line-height: 1;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.07cm;
+            margin-bottom: 0.1cm; /* Space between brand name and first tagline */
+        }
+
+        .poster-header .tagline {
+            font-size: 0.7cm; /* Slightly increased tagline font size */
+            margin: 0.05cm 0; /* Consistent margin for taglines */
+            font-weight: 600;
+            color: var(--light-gray);
+            letter-spacing: 0.03cm;
+        }
+
+        /* Main Content Section */
+        .poster-content {
+            padding: 0.8cm 1.5cm; /* Reduced top/bottom padding to give more vertical space */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around; /* Distribute space evenly */
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 0.4cm; /* Reduced margin */
+            color: var(--dark-color);
+        }
+
+        .section-title h2 {
+            font-size: 1.2cm; /* Slightly reduced font size for section titles */
+            margin: 0;
+            position: relative;
+            padding-bottom: 0.15cm; /* Reduced padding */
+            font-weight: 700;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 1.8cm; /* Reduced width */
+            height: 0.1cm; /* Reduced height */
+            background-color: var(--secondary-color);
+            border-radius: 0.08cm;
+        }
+
+        /* Services Grid and Steps Grid */
+        .services-grid { /* Used for both services and process steps */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5cm; /* Reduced gap */
+            margin-bottom: 0.5cm; /* Reduced margin */
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            background-color: var(--light-gray);
+            padding: 0.3cm 0.4cm; /* Reduced padding */
+            border-radius: 0.3cm; /* Reduced border-radius */
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02); /* Lighter shadow */
+        }
+
+        .service-item i {
+            font-size: 0.9cm; /* Reduced icon size */
+            color: var(--primary-color);
+            margin-right: 0.35cm; /* Reduced margin */
+            width: 0.9cm; /* Fixed width for icon */
+            text-align: center;
+        }
+
+        .service-item h3 {
+            font-size: 0.6cm; /* Reduced font size for item titles */
+            margin: 0;
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+
+        /* Contact Info Section */
+        .contact-info-section {
+            text-align: center;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.4cm 0; /* Reduced padding */
+            border-radius: 0.3cm; /* Reduced border-radius */
+            margin-top: 0.6cm; /* Consistent margin */
+            box-shadow: 0 3px 8px rgba(0,0,0,0.06); /* Adjusted shadow */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-info-section h2 {
+            font-size: 0.8cm; /* Reduced font size */
+            margin-bottom: 0.3cm; /* Reduced margin */
+            font-weight: 700;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5cm; /* Reduced gap */
+            font-size: 0.6cm; /* Reduced font size */
+            font-weight: 600;
+        }
+
+        .contact-details span {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details i {
+            margin-right: 0.2cm; /* Reduced margin */
+            font-size: 0.65cm; /* Reduced icon size */
+            color: var(--secondary-color);
+        }
+
+        .contact-details a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .qr-code-area {
+            margin-top: 0.5cm; /* Adjusted margin to give more space from contact details */
+            background-color: var(--white);
+            padding: 0.25cm; /* Reduced padding around QR code */
+            border-radius: 0.3cm; /* Reduced border-radius */
+            display: block; /* Ensure it's a block element for centering */
+            margin-left: auto; /* Center horizontally */
+            margin-right: auto; /* Center horizontally */
+            box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+        }
+
+        .qr-code-area img {
+            width: 10cm; /* Maintained 10cm for good scan distance */
+            height: 10cm;
+            display: block;
+            margin: 0 auto; /* Center image within its smaller container */
+        }
+
+        .qr-code-area p {
+            margin-top: 0.15cm; /* Reduced margin */
+            font-size: 0.6cm; /* Adjusted font size */
+            color: var(--dark-color);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Footer Section */
+        .poster-footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 0.3cm 0; /* Reduced padding */
+            text-align: center;
+            font-size: 0.5cm; /* Reduced font size */
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+  <div class="poster-container">
+    <!-- Header Section -->
+    <div class="poster-header">
+      <div class="logo-top">
+        <img src="https://lh3.googleusercontent.com/d/1yOD1prYXUmDVotEpRzEtjqHH0ImhNQI6" alt="Scrap Mart Logo" class="header-logo" />
+      </div>
+      <h1>SCRAP MART</h1>
+      <p class="tagline">Your Scrap, Our Solution!</p>
+      <p class="tagline">Turn Your Trash Into Treasure in Bengaluru!</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="poster-content">
+      <div class="section-title">
+        <h2>What We Collect</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-item">
+          <i class="fas fa-hammer"></i>
+          <h3>Metal Scrap</h3>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-newspaper"></i>
+          <h3>Paper & Cardboard</h3>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-recycle"></i>
+          <h3>Plastic Waste</h3>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-microchip"></i>
+          <h3>E-Waste</h3>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <h2>Our Simple Process</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-item">
+          <i class="fas fa-handshake"></i>
+          <h3>1. Get in Touch</h3>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-truck-pickup"></i>
+          <h3>2. Doorstep Pickup</h3>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-money-bill-wave"></i>
+          <h3>3. Instant Payment</h3>
+        </div>
+        <div class="service-item">
+          <i class="fas fa-leaf"></i>
+          <h3>4. Eco-Friendly Recycling</h3>
+        </div>
+      </div>
+
+      <div class="contact-info-section">
+        <h2>Contact Us Today!</h2>
+        <div class="contact-details">
+          <span><i class="fas fa-phone-alt"></i><a href="tel:+919738941808">+91 9738941808</a></span>
+        </div>
+        <div class="qr-code-area">
+          <img src="https://lh3.googleusercontent.com/d/1Nd8Qu7q5i4NaBVHMaw9ktPpR5lkTsZ1r" alt="Website QR Code">
+          <p>Scan to Connect</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
